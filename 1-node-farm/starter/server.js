@@ -10,8 +10,11 @@ const server = http.createServer((req, res) => {
         res.end('This is the product');
     } 
     else {
-        res.writeHead(404);
-        res.end('Page not found');
+        res.writeHead(404, {
+            'Content-type': 'text/html',
+            'my-own-header': 'Hello, World!'
+        });
+        res.end('<h1>Page not found</h1>');
     }
 });
 
