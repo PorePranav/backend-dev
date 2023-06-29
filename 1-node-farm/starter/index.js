@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require("fs");
 
-//Synchronous 
+//Synchronous
 // const textIn = fs.readFileSync('./txt/input.txt', 'utf-8');
 // console.log(textIn);
 
@@ -8,19 +8,19 @@ const fs = require('fs');
 // fs.writeFileSync('./txt/output.txt', textOut, 'utf-8');
 
 //Asynchronous
-fs.readFile('./txt/start.txt', 'utf-8', (err, data1) => {
-    if(err) {
-        return console.error('Problem opening file: File does not exist');
+fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
+    if (err) {
+        return console.error("Problem opening file: File does not exist");
     }
-    fs.readFile(`./txt/${data1}.txt`, 'utf-8', (err, data2) => {
+    fs.readFile(`./txt/${data1}.txt`, "utf-8", (err, data2) => {
         console.log(data2);
-        fs.readFile('./txt/append.txt', 'utf-8', (err, data3) => {
+        fs.readFile("./txt/append.txt", "utf-8", (err, data3) => {
             console.log(data3);
-            fs.writeFile('./txt/final.txt', `${data2}\n${data3}`, (err) => {
-                console.log('Data written!');
-            })
-        })
+            fs.writeFile("./txt/final.txt", `${data2}\n${data3}`, (err) => {
+                console.log("Data written!");
+            });
+        });
     });
 });
 
-console.log('Will read file!');
+console.log("Will read file!");
